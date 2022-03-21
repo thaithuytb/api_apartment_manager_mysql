@@ -1,0 +1,60 @@
+
+POST http://localhost:6969/register
+Content-Type: application/json
+
+{
+    "phoneNumber": "0384560433",
+    "password": "thaithuytb",
+    "roomID": 1,
+    "isAdmin": false
+}
+
+###
+POST http://localhost:6969/login
+Content-Type: application/json
+
+{
+    "phoneNumber": "0384560432",
+    "password": "thaithuytb"
+}
+
+###
+
+GET http://localhost:6969/user
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODMyNjczLCJleHAiOjE2NDc4MzYyNzN9.Yc_U5T97Mb0FC-pkA_hgsbaNZUm5TluBVbZETsP5X_A
+###
+GET http://localhost:6969/user
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjQ3Nzk0MTMyLCJleHAiOjE2NDc3OTc3MzJ9.TQ8KkI6Ahb8kRsAenmhnR72euQC718zjp8BZKINBjps
+
+###
+GET http://localhost:6969/room
+
+###
+
+POST http://localhost:6969/room
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
+Content-Type: application/json
+
+{
+    "roomName": "c5",
+    "rentPrice": 3500000,
+    "isEmpty": true,
+    "haveWifi": true
+}
+
+###
+PUT http://localhost:6969/room/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
+Content-Type: application/json
+
+{
+    "roomName": "c2",
+    "rentPrice": 2000000,
+    "isEmpty": true,
+    "haveWifi": true
+}
+
+###
+DELETE  http://localhost:6969/room/5
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
+Content-Type: application/json

@@ -1,0 +1,4 @@
+server/node_modules
+server/build
+server/.env
+server/.ormconfig.json
