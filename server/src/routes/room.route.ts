@@ -5,12 +5,14 @@ import authUser from './../middleware/authUser';
 
 const routeRoom = express.Router();
 
-routeRoom.get('/', roomController.getAllRoom);
+routeRoom.use(authUser);
+routeRoom.get('/:id',roomController.getRoomDetail);
 
-routeRoom.use(authUser, authRole('admin'));
+routeRoom.use(authRole('admin'));
 routeRoom.post('/', roomController.createRoom);
 routeRoom.put('/:id', roomController.updateRoom);
 routeRoom.delete('/:id', roomController.deleteRoom);
+routeRoom.get('/', roomController.getAllRoom);
 
 
 

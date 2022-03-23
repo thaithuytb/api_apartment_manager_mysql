@@ -1,14 +1,51 @@
-
 import { getRepository } from 'typeorm';
 import { Room } from '../entities/Room';
 import { ResponseType } from './../types/ResponseType';
 import { RequestType } from './../types/RequestType';
 import { Request } from 'express';
+import { User } from '../entities/User';
 
 const roomController = {
+    getRoomDetail: async (req: RequestType, res: ResponseType<Room | User>) => {
+
+        try {
+            const user = await getRepository(User).findOne({
+                select: ['userID','isAdmin', 'room'],
+                where: {
+                    userID: req.userID
+                },
+                relations: ['room']
+            });
+            if (user?.room.roomID === +req.params.id || user?.isAdmin) {
+                console.log('a');
+                const room = await getRepository(Room).findOne({
+                    where: {
+                        roomID: +req.params.id
+                    },
+                    relations: ['users']
+                });
+                if (room) {
+                    return res.status(200).json({
+                        success: true,
+                        data: room
+                    });
+                }
+            }
+            return res.status(403).json({
+                success: false,
+                message: 'Not allowed'
+            });
+
+            
+        } catch (error) {
+            console.log(error);
+        }
+    },
     getAllRoom: async (req: Request, res: ResponseType<Room>) => {
         try {
-            const rooms = await getRepository(Room).find();
+            const rooms = await getRepository(Room).find({
+                select: ['roomID', 'roomName']
+            });
             if (rooms) {
                 return res.status(200).json({
                     success: true,

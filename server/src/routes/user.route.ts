@@ -1,19 +1,15 @@
-import express, { Response } from 'express';
+import express from 'express';
 import userController from '../controllers/user.controller';
 import authUser from '../middleware/authUser';
-import { RequestType } from '../types/RequestType';
-import authRole from './../middleware/authRole';
 const routeUser = express.Router();
 
-// routeUser.get('/', userController.getUsers);
 routeUser.post('/login', userController.loginUser);
 routeUser.post('/register', userController.registerUser);
 
-routeUser.use(authUser, authRole('admin'));
-routeUser.get('/user', (req: RequestType, res: Response) => {
-    console.log(req.userID);
-});
+routeUser.use(authUser);
+routeUser.get('/detailUser', userController.getDetailUser);
+routeUser.post('/updateUser', userController.updateDetailUser);
+routeUser.post('/changePW', userController.changePassword);
 
-// routeUser.delete('/:id', userController.deleteUser);
 
 export default routeUser;
