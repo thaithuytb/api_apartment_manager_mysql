@@ -1,43 +1,67 @@
 
-POST http://localhost:6969/register
+POST http://localhost:6868/register
 Content-Type: application/json
 
 {
-    "phoneNumber": "03845604325",
+    "phoneNumber": "1234567",
     "password": "thaithuytb",
-    "roomID": 4,
+    "roomID": 3,
     "isAdmin": false
 }
 
 ###
-POST http://localhost:6969/login
+POST http://localhost:6868/login
 Content-Type: application/json
 
 {
     "phoneNumber": "03845604320",
-    "password": "thaithuytb"
+    "password": "thaithuy"
+}
+###
+POST http://localhost:6868/updateUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
+Content-Type: application/json
+
+{
+    "fullName": "Thaingo",
+    "cardNumber": 1234567,
+    "sex": "female"
+}
+
+###
+GET http://localhost:6868
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEyMTE3LCJleHAiOjE2NDgxMTU3MTd9.DBr7s0gU0059hRxPa5fWQVMfuzKTDVoV4QabKiStl8M
+
+###
+POST http://localhost:6868/changePW
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE4NzU2LCJleHAiOjE2NDgwMjIzNTZ9.-egA1ucecENWw_cjo5ZB1SvVdQ9Zz1peBuIiED7cuKw
+Content-Type: application/json
+
+{
+    "password": "thaithuytb",
+    "newPassword": "thaithuy"
 }
 
 ###
 
-GET http://localhost:6969/user
+GET http://localhost:6868/user
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODMyNjczLCJleHAiOjE2NDc4MzYyNzN9.Yc_U5T97Mb0FC-pkA_hgsbaNZUm5TluBVbZETsP5X_A
 ###
-GET http://localhost:6969/user
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiaWF0IjoxNjQ3Nzk0MTMyLCJleHAiOjE2NDc3OTc3MzJ9.TQ8KkI6Ahb8kRsAenmhnR72euQC718zjp8BZKINBjps
+GET http://localhost:6868/detailUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
 
 ###
 
-GET http://localhost:6969/room/1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
+GET http://localhost:6868/room/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
 
 ###
-GET http://localhost:6969/room
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
+GET http://localhost:6868/room
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4MDE1MjMxLCJleHAiOjE2NDgwMTg4MzF9.eVxN1PNqM26FJ27aZLZrS8Q-F4bsBiPWhAoXJsn_dyE
 
 ###
 
-POST http://localhost:6969/room
+POST http://localhost:6868/room
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
 Content-Type: application/json
 
@@ -49,7 +73,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:6969/room/3
+PUT http://localhost:6868/room/3
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODgwNjE2LCJleHAiOjE2NDc4ODQyMTZ9.srNIGMUMQ3moziQWpZHKyMHvW4vB0bK1paAU32yUvmY
 Content-Type: application/json
 
@@ -61,6 +85,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:6969/room/5
+DELETE  http://localhost:6868/room/5
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODM3Njc3LCJleHAiOjE2NDc4NDEyNzd9.mwWOvqGEwzaO7bfgnFN5ilPQpqN1u_qlk1Mq2AEEoOE
 Content-Type: application/json

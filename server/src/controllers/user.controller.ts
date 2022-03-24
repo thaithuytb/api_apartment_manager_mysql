@@ -12,21 +12,21 @@ const userController = {
         const { phoneNumber, password } = req.body;
         try {
             const user =  await getRepository(User).findOne({
-                select: ['userID','fullName','phoneNumber', 'room', 'password'],
+                select: ['userID', 'isAdmin' ,'fullName','phoneNumber','password'],
                 where: {
                     phoneNumber
                 },
                 relations: ['room'],
             });
             if ( !user ) {
-                return res.status(400).json({
+                return res.json({
                     success: false,
                     message: 'phoneNumber or password is incorrect'
                 });
             }
             const checkPassword = await verify(user.password, password);
             if (!checkPassword) {
-                return res.status(400).json({
+                return res.json({
                     success: false,
                     message: 'phoneNumber or password is incorrect'
                 });
@@ -51,7 +51,7 @@ const userController = {
         try {
             const checkUser = await getRepository(User).findOne({phoneNumber});
             if (checkUser) {
-                return res.status(400).json({
+                return res.json({
                     success: false,
                     message: 'PhoneNumber already exists'
                 });
@@ -83,6 +83,25 @@ const userController = {
             console.log(error);
         }    
     },
+    getUser: async (req: RequestType, res: ResponseType<User>) => {
+        try {
+            const user = await getRepository(User).findOne({
+                select: ['userID', 'isAdmin' ,'fullName','phoneNumber'],
+                where: {
+                    userID: req.userID
+                },
+                relations: ['room']
+            });
+            if (user) {
+                return res.status(200).json({
+                    success: true,
+                    data: user
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    },
     getDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).findOne({
@@ -90,7 +109,7 @@ const userController = {
                 where: {
                     userID: req.userID
                 }
-            })
+            });
             if ( user ) {
                 return res.status(200).json({
                     success: true,
@@ -138,10 +157,10 @@ const userController = {
                         return res.status(200).json({
                             success: true,
                             message: 'Change password successfully!!!'
-                        })
+                        });
                     }
                 }
-                return res.status(500).json({
+                return res.json({
                     success: false,
                     message: 'Password is incorrected !!!',
                 });

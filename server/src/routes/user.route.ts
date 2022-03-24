@@ -7,6 +7,7 @@ routeUser.post('/login', userController.loginUser);
 routeUser.post('/register', userController.registerUser);
 
 routeUser.use(authUser);
+routeUser.get('/', userController.getUser);
 routeUser.get('/detailUser', userController.getDetailUser);
 routeUser.post('/updateUser', userController.updateDetailUser);
 routeUser.post('/changePW', userController.changePassword);

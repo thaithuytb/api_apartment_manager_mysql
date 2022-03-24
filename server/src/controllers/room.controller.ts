@@ -31,7 +31,7 @@ const roomController = {
                     });
                 }
             }
-            return res.status(403).json({
+            return res.json({
                 success: false,
                 message: 'Not allowed'
             });
@@ -61,7 +61,7 @@ const roomController = {
         const { roomName, rentPrice, haveWifi, isEmpty } = req.body;
         console.log(req.body);
         if (!roomName) {
-            return res.status(500).json({
+            return res.json({
                 success: false,
                 message: 'roomName is required'
             });
@@ -69,7 +69,7 @@ const roomController = {
         try {
             const checkRoom = await getRepository(Room).findOne({roomName});
             if (checkRoom) {
-                return res.status(500).json({
+                return res.json({
                     success: false,
                     message: 'This room is existed'
                 });

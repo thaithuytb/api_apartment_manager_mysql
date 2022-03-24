@@ -18,6 +18,6 @@ app.use(cors());
 
 route(app);
 
-const PORT = parseInt(process.env.PORT as string, 10) || 6969;
+const PORT = parseInt(process.env.SERVER_PORT as string) || 6969;
 
 app.listen(PORT, () => console.log(`server is runing in port ${PORT}`));
