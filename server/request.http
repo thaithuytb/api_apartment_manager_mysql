@@ -52,12 +52,12 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxN
 
 ###
 
-GET http://localhost:6868/room/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
+GET http://localhost:6868/room/3
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEzOTkzLCJleHAiOjE2NDgxMTc1OTN9.hskktT-EnkOSMEnMCzQyOOqsUFYwbYuNkFNcyCv0KHU
 
 ###
 GET http://localhost:6868/room
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4MDE1MjMxLCJleHAiOjE2NDgwMTg4MzF9.eVxN1PNqM26FJ27aZLZrS8Q-F4bsBiPWhAoXJsn_dyE
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEzOTkzLCJleHAiOjE2NDgxMTc1OTN9.hskktT-EnkOSMEnMCzQyOOqsUFYwbYuNkFNcyCv0KHU
 
 ###
 

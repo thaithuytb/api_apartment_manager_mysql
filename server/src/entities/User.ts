@@ -1,5 +1,10 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+import { Bill } from './Bill';
+import { Comment } from './Comment';
+import { Like } from './Like';
+import { Post } from './Post';
 import { Room } from './Room';
+import { UserBill } from './UserBill.';
 
 @Entity({name: 'users'})
 
@@ -58,7 +63,16 @@ export class User {
     @ManyToOne(() => Room, room => room.users)
     @JoinColumn({ name: 'roomID' })
         room: Room;
-    // @JoinColumn()
-        // profile: ProfileUser;
-    //create a foreign key have name profileID
+
+    @OneToMany(() => Comment, (comment) => comment.user)
+        comments: Comment[];
+
+    @OneToMany(() => Like, (like) => like.user)
+        likes: Like[];
+
+    @OneToMany(() => Post, (post) => post.user)
+        posts: Post[];
+
+    @OneToMany(() => UserBill, (userBill) => userBill.user)
+        userBills: UserBill[];
 }

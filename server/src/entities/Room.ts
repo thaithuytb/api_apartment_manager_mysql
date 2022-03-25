@@ -23,10 +23,10 @@ export class Room {
         haveWifi: boolean;
 
     @CreateDateColumn()
-        createAt: Date;
+        createAt!: Date;
 
     @UpdateDateColumn()
-        updateAt: Date;
+        updateAt!: Date;
 
     @OneToMany(() => User, user => user.room)
         users: User[];
