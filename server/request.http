@@ -19,13 +19,14 @@ Content-Type: application/json
 }
 ###
 POST http://localhost:6868/updateUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MjgyOTg2LCJleHAiOjE2NDgyODY1ODZ9.h1RM_sRJb6S10IyWkevl9809AdKeNl_W0tJTGPCu-WE
 Content-Type: application/json
 
 {
-    "fullName": "Thaingo",
-    "cardNumber": 1234567,
-    "sex": "female"
+    "fullName": "Thaingoo",
+    "cardNumber": 12345678,
+    "sex": "female",
+    "dateOfBirth": "2001-11-29T16:50:50.844Z"
 }
 
 ###
@@ -48,7 +49,7 @@ GET http://localhost:6868/user
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODMyNjczLCJleHAiOjE2NDc4MzYyNzN9.Yc_U5T97Mb0FC-pkA_hgsbaNZUm5TluBVbZETsP5X_A
 ###
 GET http://localhost:6868/detailUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MDE2MjgxLCJleHAiOjE2NDgwMTk4ODF9.vPjpVpLgSfk8rEUyIPo_otmYpHPhDUrch3dyGb-HQlc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4Mjg2OTA3LCJleHAiOjE2NDgyOTA1MDd9.pUBugW4YKw0QAhVHteekiDZp1vcpSrzFJZbAwiHlck8
 
 ###
 

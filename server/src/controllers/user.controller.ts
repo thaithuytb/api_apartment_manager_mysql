@@ -104,13 +104,14 @@ const userController = {
     },
     getDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
-            const user = await getRepository(User).findOne({
-                select: ['userID','fullName', 'phoneNumber','sex','cardNumber','dateOfBirth','address','haveMotorbike'],
-                where: {
-                    userID: req.userID
-                }
-            });
+            const user = await getRepository(User).createQueryBuilder('user')
+                .select(['userID','fullName', 'phoneNumber','sex','cardNumber','address','haveMotorbike'])
+                .addSelect('DATE_FORMAT(dateOfBirth,\'%Y-%m-%d\')','dateOfBirth')
+                .where('user.userID = :id', { id: req.userID})
+                .getRawOne();
             if ( user ) {
+                console.log(user);
+
                 return res.status(200).json({
                     success: true,
                     data: user
