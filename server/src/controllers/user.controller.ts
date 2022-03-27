@@ -6,6 +6,7 @@ import { Secret, sign } from 'jsonwebtoken';
 import { hash, verify } from 'argon2';
 import { Room } from '../entities/Room';
 import { RequestType } from './../types/RequestType';
+import { v4 as uuidv4 } from 'uuid';
 
 const userController = {
     loginUser: async (req: Request, res: ResponseType<User>) => {
@@ -63,6 +64,7 @@ const userController = {
                 newUser.phoneNumber = phoneNumber;
                 newUser.isAdmin = isAdmin;
                 newUser.password = hashPassword;
+                newUser.fullName = uuidv4();
                 newUser.room = room;
 
                 const user = await getRepository(User).create(newUser);
@@ -170,6 +172,25 @@ const userController = {
             console.log(error);
         }
     },
+    getAllUser: async (req: RequestType, res: ResponseType<User>)=> {
+        try {
+            const user = await getRepository(User).find({
+                select: ['userID', 'fullName']
+            });
+            if (!user) {
+                res.status(404).json({
+                    success: false,
+                    message: 'Not found !!!'
+                });
+            }
+            return res.status(200).json({
+                success: true,
+                data: user
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
 };
 
 export default userController;

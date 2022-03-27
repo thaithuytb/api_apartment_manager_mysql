@@ -18,6 +18,10 @@ Content-Type: application/json
     "password": "thaithuytb"
 }
 ###
+GET http://localhost:6868/allUser
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4NDAwMjU2LCJleHAiOjE2NDg0MTgyNTZ9.nU4X_Ot_XC4BvB6IgiJkejRm0_l-TUr7K1yzHFDqd5o
+
+###
 POST http://localhost:6868/updateUser
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MjgyOTg2LCJleHAiOjE2NDgyODY1ODZ9.h1RM_sRJb6S10IyWkevl9809AdKeNl_W0tJTGPCu-WE
 Content-Type: application/json
@@ -92,16 +96,21 @@ Content-Type: application/json
 
 ###
 GET http://localhost:6868/bill/6
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4MzY4NDQyLCJleHAiOjE2NDgzODY0NDJ9.FFogPBDkxvbbsMXMPXKoffgFpVG2bogyBWsUzVOOEw4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjQ4Mzk5MzM1LCJleHAiOjE2NDg0MTczMzV9.bCaLLJCS9XFI3fDAI54y1bA15T2_fNvlq1vQaP-74xc
+Content-Type: application/json
 
+{
+    "year": 2022,
+    "month": 1
+}
 ###
 POST http://localhost:6868/bill/6
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4Mzc0MTE5LCJleHAiOjE2NDgzOTIxMTl9.c1OTLBXgnKMLp3oyK81euCl9NUNTrdEWu6NrpDPvst0
 Content-Type: application/json
 
 {
-    "electricNumber": 0,
-    "waterBlockNumber": 0,
+    "electricNumber": 70,
+    "waterBlockNumber": 70,
     "paid": false,
     "sent": false
 }
