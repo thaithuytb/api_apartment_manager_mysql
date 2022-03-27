@@ -27,6 +27,6 @@ const roomRole = async (req: RequestType, res: ResponseType<User>, next: NextFun
     } catch (error) {
         console.log(error);
     }
-}
+};
 
 export default roomRole;

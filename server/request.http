@@ -93,3 +93,15 @@ Content-Type: application/json
 ###
 GET http://localhost:6868/bill/6
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4MzY4NDQyLCJleHAiOjE2NDgzODY0NDJ9.FFogPBDkxvbbsMXMPXKoffgFpVG2bogyBWsUzVOOEw4
+
+###
+POST http://localhost:6868/bill/6
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4Mzc0MTE5LCJleHAiOjE2NDgzOTIxMTl9.c1OTLBXgnKMLp3oyK81euCl9NUNTrdEWu6NrpDPvst0
+Content-Type: application/json
+
+{
+    "electricNumber": 0,
+    "waterBlockNumber": 0,
+    "paid": false,
+    "sent": false
+}

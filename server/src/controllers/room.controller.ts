@@ -9,18 +9,18 @@ const roomController = {
     getRoomDetail: async (req: RequestType, res: ResponseType<Room>) => {
 
         try {
-                const room = await getRepository(Room).findOne({
-                    where: {
-                        roomID: +req.params.roomID
-                    },
-                    relations: ['users']
+            const room = await getRepository(Room).findOne({
+                where: {
+                    roomID: +req.params.roomID
+                },
+                relations: ['users']
+            });
+            if (room) {
+                return res.status(200).json({
+                    success: true,
+                    data: room
                 });
-                if (room) {
-                    return res.status(200).json({
-                        success: true,
-                        data: room
-                    });
-                }
+            }
             
             return res.json({
                 success: false,
@@ -50,7 +50,6 @@ const roomController = {
     },
     createRoom: async (req:RequestType, res: ResponseType<Room>) => {
         const { roomName, rentPrice, haveWifi, isEmpty } = req.body;
-        console.log(req.body);
         if (!roomName) {
             return res.json({
                 success: false,
