@@ -3,7 +3,7 @@ import jwt, { Secret } from 'jsonwebtoken';
 import { RequestType } from '../types/RequestType';
 import { TokenType } from '../types/TokenType';
 
-const authUser = async (req : RequestType, res: Response, next: NextFunction) => {
+const authVerifyToken = async (req : RequestType, res: Response, next: NextFunction) => {
     const headerDate = req.headers.authorization;
     const token = headerDate && headerDate.split(' ')[1];
 
@@ -20,4 +20,4 @@ const authUser = async (req : RequestType, res: Response, next: NextFunction) =>
     }
 };
 
-export default authUser;
+export default authVerifyToken;

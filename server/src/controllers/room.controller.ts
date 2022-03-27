@@ -6,21 +6,12 @@ import { Request } from 'express';
 import { User } from '../entities/User';
 
 const roomController = {
-    getRoomDetail: async (req: RequestType, res: ResponseType<Room | User>) => {
+    getRoomDetail: async (req: RequestType, res: ResponseType<Room>) => {
 
         try {
-            const user = await getRepository(User).findOne({
-                select: ['userID','isAdmin', 'room'],
-                where: {
-                    userID: req.userID
-                },
-                relations: ['room']
-            });
-            if (user?.room.roomID === +req.params.id || user?.isAdmin) {
-                console.log('a');
                 const room = await getRepository(Room).findOne({
                     where: {
-                        roomID: +req.params.id
+                        roomID: +req.params.roomID
                     },
                     relations: ['users']
                 });
@@ -30,7 +21,7 @@ const roomController = {
                         data: room
                     });
                 }
-            }
+            
             return res.json({
                 success: false,
                 message: 'Not allowed'

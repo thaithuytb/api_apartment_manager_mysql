@@ -32,7 +32,7 @@ const userController = {
                 });
             }
             const token = await sign({ id: user.userID }, process.env.ACCESS_TOKEN_SECRET as Secret, {
-                expiresIn: '1h'
+                expiresIn: '5h'
             });
 
             return res.status(200).json({

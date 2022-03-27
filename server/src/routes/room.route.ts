@@ -1,12 +1,13 @@
 import express from 'express';
 import roomController from '../controllers/room.controller';
 import authRole from './../middleware/authRole';
-import authUser from './../middleware/authUser';
+import authVerifyToken from '../middleware/authVerifyToken';
+import roomRole from '../middleware/roomRole';
 
 const routeRoom = express.Router();
 
-routeRoom.use(authUser);
-routeRoom.get('/:id',roomController.getRoomDetail);
+routeRoom.use(authVerifyToken);
+routeRoom.get('/:roomID', roomRole,roomController.getRoomDetail);
 
 routeRoom.use(authRole('admin'));
 routeRoom.post('/', roomController.createRoom);
