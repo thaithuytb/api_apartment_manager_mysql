@@ -119,9 +119,9 @@ const billController = {
                     });
                 }
             }
-            return res.json({
+            return res.status(404).json({
                 success: false,
-                message: 'Dont find this room !!!'
+                message: 'Room not found !!!'
             });
            
             

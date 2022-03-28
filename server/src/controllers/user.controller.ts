@@ -80,7 +80,11 @@ const userController = {
                         message: `phoneNumber: ${newUser.phoneNumber} registered successfully !!!`
                     });
                 }
-            }            
+            }
+            return res.status(404).json({
+                success: false,
+                message: 'Room not found !!!'
+            });       
         } catch (error) {
             console.log(error);
         }    
@@ -100,6 +104,10 @@ const userController = {
                     data: user
                 });
             }
+            return res.status(404).json({
+                success: false,
+                message: 'User not found !!!'
+            });
         } catch (error) {
             console.log(error);
         }
@@ -119,6 +127,10 @@ const userController = {
                     data: user
                 });
             }
+            return res.status(404).json({
+                success: false,
+                message: 'User not found !!!'
+            });
         } catch (error) {
             console.log(error);
         }
@@ -137,6 +149,10 @@ const userController = {
                     });
                 }
             }
+            return res.status(404).json({
+                success: false,
+                message: 'User not found !!!'
+            });
         } catch (error) {
             console.log(error);
         }
@@ -168,6 +184,10 @@ const userController = {
                     message: 'Password is incorrected !!!',
                 });
             }
+            return res.status(404).json({
+                success: false,
+                message: 'User not found !!!'
+            });
         } catch (error) {
             console.log(error);
         }
@@ -180,7 +200,7 @@ const userController = {
             if (!user) {
                 res.status(404).json({
                     success: false,
-                    message: 'Not found !!!'
+                    message: 'User not found !!!'
                 });
             }
             return res.status(200).json({

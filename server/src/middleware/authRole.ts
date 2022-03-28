@@ -1,12 +1,13 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction } from 'express';
 import { getRepository } from 'typeorm';
 import { User } from '../entities/User';
 import { RequestType } from '../types/RequestType';
+import { ResponseType } from '../types/ResponseType';
 
 
 
 const authRole = (role?: string) => {
-    return async (req: RequestType, res: Response, next: NextFunction) => {
+    return async (req: RequestType, res: ResponseType<User>, next: NextFunction) => {
         try {
             if (role ? role === 'admin' ? true: false: false) {
                 const user = await getRepository(User).findOne({userID: req.userID});
@@ -16,8 +17,10 @@ const authRole = (role?: string) => {
                         return res.status(200);
                     }  
                 }
-                res.status(403);
-                return res.send('Not allowed');
+                return res.status(403).json({
+                    success: false,
+                    message: 'Not allowed !!!'
+                });
             } 
             next();
         } catch (error) {

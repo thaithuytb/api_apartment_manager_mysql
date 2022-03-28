@@ -1,9 +1,11 @@
-import { NextFunction, Response } from 'express';
+import { NextFunction } from 'express';
 import jwt, { Secret } from 'jsonwebtoken';
 import { RequestType } from '../types/RequestType';
 import { TokenType } from '../types/TokenType';
+import { User } from '../entities/User';
+import { ResponseType } from '../types/ResponseType';
 
-const authVerifyToken = async (req : RequestType, res: Response, next: NextFunction) => {
+const authVerifyToken = async (req : RequestType, res: ResponseType<User>, next: NextFunction) => {
     const headerDate = req.headers.authorization;
     const token = headerDate && headerDate.split(' ')[1];
 
@@ -14,6 +16,11 @@ const authVerifyToken = async (req : RequestType, res: Response, next: NextFunct
                 req.userID = decoden.id;
                 next();
             }
+        } else {
+            return res.status(403).json({
+                success: false,
+                message: 'Not allowed !!!'
+            });
         }
     } catch (error) {
         console.log(error);

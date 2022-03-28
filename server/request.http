@@ -3,9 +3,9 @@ POST http://localhost:6868/register
 Content-Type: application/json
 
 {
-    "phoneNumber": "1234567",
+    "phoneNumber": "1234567897",
     "password": "thaithuytb",
-    "roomID": 3,
+    "roomID": 4,
     "isAdmin": false
 }
 
@@ -14,21 +14,21 @@ POST http://localhost:6868/login
 Content-Type: application/json
 
 {
-    "phoneNumber": "0384560432",
+    "phoneNumber": "1234567897",
     "password": "thaithuytb"
 }
 ###
 GET http://localhost:6868/allUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4NDAwMjU2LCJleHAiOjE2NDg0MTgyNTZ9.nU4X_Ot_XC4BvB6IgiJkejRm0_l-TUr7K1yzHFDqd5o
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 
 ###
 POST http://localhost:6868/updateUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MjgyOTg2LCJleHAiOjE2NDgyODY1ODZ9.h1RM_sRJb6S10IyWkevl9809AdKeNl_W0tJTGPCu-WE
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 Content-Type: application/json
 
 {
-    "fullName": "Thaingoo",
-    "cardNumber": 12345678,
+    "fullName": "Thaingoooo",
+    "cardNumber": 123456789,
     "sex": "female",
     "dateOfBirth": "2001-11-29T16:50:50.844Z"
 }
@@ -50,19 +50,19 @@ Content-Type: application/json
 ###
 
 GET http://localhost:6868/user
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ3ODMyNjczLCJleHAiOjE2NDc4MzYyNzN9.Yc_U5T97Mb0FC-pkA_hgsbaNZUm5TluBVbZETsP5X_A
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 ###
 GET http://localhost:6868/detailUser
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4Mjg2OTA3LCJleHAiOjE2NDgyOTA1MDd9.pUBugW4YKw0QAhVHteekiDZp1vcpSrzFJZbAwiHlck8
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 
 ###
 
-GET http://localhost:6868/room/3
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjQ4MzY4NDQyLCJleHAiOjE2NDgzODY0NDJ9.FFogPBDkxvbbsMXMPXKoffgFpVG2bogyBWsUzVOOEw4
+GET http://localhost:6868/room/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImlhdCI6MTY0ODQ1MjYxNSwiZXhwIjoxNjQ4NDcwNjE1fQ.RjWpKDdzpHrYWXDx6eC_pEpSOEb_v03wD2Phk12ze_s
 
 ###
 GET http://localhost:6868/room
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjQ4MTEzOTkzLCJleHAiOjE2NDgxMTc1OTN9.hskktT-EnkOSMEnMCzQyOOqsUFYwbYuNkFNcyCv0KHU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 
 ###
 
@@ -95,8 +95,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 Content-Type: application/json
 
 ###
-GET http://localhost:6868/bill/6
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjQ4Mzk5MzM1LCJleHAiOjE2NDg0MTczMzV9.bCaLLJCS9XFI3fDAI54y1bA15T2_fNvlq1vQaP-74xc
+GET http://localhost:6868/bill/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImlhdCI6MTY0ODQ1MTkwNSwiZXhwIjoxNjQ4NDY5OTA1fQ.qTvunwxe2wfo6NSpCRg3TwLlUz73T7Dii-zFft6iTvI
 Content-Type: application/json
 
 {

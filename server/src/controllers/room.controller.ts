@@ -3,7 +3,6 @@ import { Room } from '../entities/Room';
 import { ResponseType } from './../types/ResponseType';
 import { RequestType } from './../types/RequestType';
 import { Request } from 'express';
-import { User } from '../entities/User';
 
 const roomController = {
     getRoomDetail: async (req: RequestType, res: ResponseType<Room>) => {
@@ -22,9 +21,9 @@ const roomController = {
                 });
             }
             
-            return res.json({
+            return res.status(404).json({
                 success: false,
-                message: 'Not allowed'
+                message: 'Room not found !!!'
             });
 
             
@@ -43,14 +42,17 @@ const roomController = {
                     data: rooms
                 });
             }
-            return res.send('null');
+            return res.status(404).json({
+                success: false,
+                message: 'Rooms not found !!!'
+            });
         } catch (error) {
             console.log(error);
         }
     },
     createRoom: async (req:RequestType, res: ResponseType<Room>) => {
         const { roomName, rentPrice, haveWifi, isEmpty } = req.body;
-        if (!roomName) {
+        if (roomName === undefined) {
             return res.json({
                 success: false,
                 message: 'roomName is required'
@@ -99,6 +101,10 @@ const roomController = {
                     });
                 }
             }
+            return res.status(404).json({
+                success: false,
+                message: 'Room not found !!!'
+            });
             
         } catch (error) {
             console.log(error);

@@ -18,7 +18,7 @@ const roomRole = async (req: RequestType, res: ResponseType<User>, next: NextFun
         if (user?.isAdmin || user?.room?.roomID === +req.params.roomID) {
             next();
         } else {
-            return res.json({
+            return res.status(404).json({
                 success: false,
                 message: 'Not allowed !!!'
             });
