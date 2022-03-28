@@ -9,6 +9,7 @@ import { RequestType } from './../types/RequestType';
 import { v4 as uuidv4 } from 'uuid';
 
 const userController = {
+    //POST: .../login
     loginUser: async (req: Request, res: ResponseType<User>) => {
         const { phoneNumber, password } = req.body;
         try {
@@ -47,6 +48,7 @@ const userController = {
             console.log(error);
         }    
     },
+    //POST: .../register
     registerUser: async (req:Request, res: ResponseType<User>) => {
         const { phoneNumber, password, isAdmin, roomID } = req.body;
         try {
@@ -89,6 +91,7 @@ const userController = {
             console.log(error);
         }    
     },
+    //GET: .../user
     getUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).findOne({
@@ -112,6 +115,7 @@ const userController = {
             console.log(error);
         }
     },
+    //GET: .../detailUser
     getDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).createQueryBuilder('user')
@@ -135,6 +139,7 @@ const userController = {
             console.log(error);
         }
     },
+    //PUT .../updateUser
     updateDetailUser: async (req: RequestType, res: ResponseType<User>) => {
         try {
             const user = await getRepository(User).findOne({ userID: req.userID});
@@ -157,6 +162,7 @@ const userController = {
             console.log(error);
         }
     },
+    //PUT .../changePW
     changePassword: async (req: RequestType, res: ResponseType<User>)=> {
         try {
             const { password, newPassword} = req.body;
@@ -192,6 +198,7 @@ const userController = {
             console.log(error);
         }
     },
+    //GET: .../allUser
     getAllUser: async (req: RequestType, res: ResponseType<User>)=> {
         try {
             const user = await getRepository(User).find({
@@ -210,7 +217,7 @@ const userController = {
         } catch (error) {
             console.log(error);
         }
-    }
+    },
 };
 
 export default userController;

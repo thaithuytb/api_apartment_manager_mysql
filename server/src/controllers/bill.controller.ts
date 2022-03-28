@@ -6,6 +6,7 @@ import { Room } from '../entities/Room';
 import formatDate from '../utils/fomatDate';
 
 const billController = {
+    //GET: .../bill/:roomID
     getBillDetail: async (req: RequestType, res: ResponseType<Bill>) => {
         const { year, month } = req.body;
         if (year === undefined) {
@@ -53,6 +54,7 @@ const billController = {
             console.log(error);
         }
     },
+    //POST: .../bill/:roomID
     createBill: async (req: RequestType, res: ResponseType<Bill>) => {
         const {electricNumber, waterBlockNumber, paid, sent } = req.body; 
         if (electricNumber === undefined) {

@@ -5,8 +5,8 @@ import { RequestType } from './../types/RequestType';
 import { Request } from 'express';
 
 const roomController = {
+    //GET: ../room/:roomID
     getRoomDetail: async (req: RequestType, res: ResponseType<Room>) => {
-
         try {
             const room = await getRepository(Room).findOne({
                 where: {
@@ -31,6 +31,7 @@ const roomController = {
             console.log(error);
         }
     },
+    //GET: .../room
     getAllRoom: async (req: Request, res: ResponseType<Room>) => {
         try {
             const rooms = await getRepository(Room).find({
@@ -50,6 +51,7 @@ const roomController = {
             console.log(error);
         }
     },
+    //POST .../room
     createRoom: async (req:RequestType, res: ResponseType<Room>) => {
         const { roomName, rentPrice, haveWifi, isEmpty } = req.body;
         if (roomName === undefined) {
@@ -88,6 +90,7 @@ const roomController = {
             console.log(error);
         }
     },
+    //PUT: .../room/:id
     updateRoom: async (req: RequestType, res: ResponseType<Room>) => {
         try {  
             const room = await getRepository(Room).findOne({roomID: +req.params.id});
@@ -110,6 +113,7 @@ const roomController = {
             console.log(error);
         }
     },
+    //DELETE: .../room/:id
     deleteRoom: async (req: RequestType, res: ResponseType<Room>) => {
         try {
             const room = await getRepository(Room).delete({roomID: +req.params.id});

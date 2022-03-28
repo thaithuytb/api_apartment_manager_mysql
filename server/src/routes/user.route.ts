@@ -8,10 +8,10 @@ routeUser.post('/login', userController.loginUser);
 routeUser.post('/register', userController.registerUser);
 
 routeUser.use(authVerifyToken);
-routeUser.get('/', userController.getUser);
+routeUser.get('/user', userController.getUser);
 routeUser.get('/detailUser', userController.getDetailUser);
-routeUser.post('/updateUser', userController.updateDetailUser);
-routeUser.post('/changePW', userController.changePassword);
+routeUser.put('/updateUser', userController.updateDetailUser);
+routeUser.put('/changePW', userController.changePassword);
 
 routeUser.use(authRole('admin'));
 routeUser.get('/allUser', userController.getAllUser);
